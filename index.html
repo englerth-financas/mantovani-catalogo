@@ -685,14 +685,18 @@
   .logo-specialita { mix-blend-mode: screen; }
 
 
-  /* Grid responsivo controlado */
-  @media (min-width: 1024px) {
-    .product-grid { grid-template-columns: repeat(4, 1fr) !important; }
+  
   }
-  @media (min-width: 768px) and (max-width: 1023px) {
+
+
+  /* Grid responsivo */
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+  @media (max-width: 900px) {
     .product-grid { grid-template-columns: repeat(3, 1fr) !important; }
   }
-  @media (max-width: 767px) {
+  @media (max-width: 600px) {
     .product-grid { grid-template-columns: repeat(2, 1fr) !important; }
   }
 

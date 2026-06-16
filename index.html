@@ -700,6 +700,215 @@
     .product-grid { grid-template-columns: repeat(2, 1fr) !important; }
   }
 
+
+.gp-toolbar {
+    display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+    margin-bottom:16px;
+  }
+  .gp-search {
+    flex:1; min-width:160px; padding:9px 13px;
+    border:1.5px solid var(--border); border-radius:8px;
+    font-size:13px; font-family:'DM Sans',sans-serif;
+    background:var(--cream); color:var(--charcoal); outline:none;
+    transition: border-color .2s;
+  }
+  .gp-search:focus { border-color:var(--accent); }
+  .gp-select {
+    padding:9px 13px; border:1.5px solid var(--border); border-radius:8px;
+    font-size:13px; font-family:'DM Sans',sans-serif;
+    background:var(--cream); color:var(--charcoal); outline:none; cursor:pointer;
+  }
+  .gp-btn {
+    padding:9px 16px; border-radius:8px; border:none; font-size:13px; font-weight:600;
+    font-family:'DM Sans',sans-serif; cursor:pointer; transition:all .15s;
+    display:flex; align-items:center; gap:6px; white-space:nowrap;
+  }
+  .gp-btn-primary { background:var(--accent); color:white; }
+  .gp-btn-primary:hover { background:#1d4ed8; }
+  .gp-btn-danger  { background:#FEE2E2; color:#DC2626; }
+  .gp-btn-danger:hover { background:#FECACA; }
+  .gp-btn-ghost   { background:var(--badge); color:var(--charcoal); border:1px solid var(--border); }
+  .gp-btn-ghost:hover { background:var(--border); }
+  .gp-btn-export  { background:#1C1C1C; color:white; }
+  .gp-btn-export:hover { background:#333; }
+
+  .gp-stats-bar {
+    display:flex; gap:12px; margin-bottom:14px; font-size:12px; color:var(--muted);
+    align-items:center; flex-wrap:wrap;
+  }
+  .gp-stats-bar strong { color:var(--charcoal); }
+
+  .gp-list { display:flex; flex-direction:column; gap:6px; max-height:380px; overflow-y:auto; }
+  .gp-row {
+    display:grid; grid-template-columns:auto 1fr auto auto;
+    gap:10px; align-items:center;
+    background:var(--cream); border:1px solid var(--border); border-radius:9px;
+    padding:10px 14px; transition: border-color .15s;
+  }
+  .gp-row:hover { border-color:var(--accent); }
+  .gp-row-id { font-size:11px; font-weight:700; color:var(--muted); min-width:28px; }
+  .gp-row-info { min-width:0; }
+  .gp-row-name { font-size:13px; font-weight:600; color:var(--charcoal);
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .gp-row-meta { font-size:11px; color:var(--muted); margin-top:2px; }
+  .gp-row-brand {
+    font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.06em;
+    padding:2px 8px; border-radius:10px;
+  }
+  .gp-brand-selecta   { background:#EBF2FF; color:#2563eb; }
+  .gp-brand-specialita { background:#FEF9EC; color:#B8860B; }
+  .gp-row-actions { display:flex; gap:6px; }
+  .gp-icon-btn {
+    width:30px; height:30px; border-radius:7px; border:1px solid var(--border);
+    background:none; cursor:pointer; font-size:14px;
+    display:flex; align-items:center; justify-content:center;
+    transition:all .15s;
+  }
+  .gp-icon-btn:hover { background:var(--badge); }
+  .gp-icon-btn.del:hover { background:#FEE2E2; border-color:#FECACA; }
+
+  /* ─── MODAL FORM ─── */
+  #gp-form-overlay {
+    position:fixed; inset:0; z-index:700;
+    background:rgba(0,0,0,.7); backdrop-filter:blur(4px);
+    display:none; align-items:center; justify-content:center; padding:20px;
+  }
+  #gp-form-overlay.open { display:flex; }
+  .gp-form-modal {
+    background:var(--warm-white); border-radius:16px;
+    width:100%; max-width:620px; max-height:90vh;
+    display:flex; flex-direction:column; overflow:hidden;
+    box-shadow:0 24px 64px rgba(0,0,0,.45);
+  }
+  .gp-form-header {
+    background:var(--charcoal); color:white; padding:16px 22px;
+    display:flex; align-items:center; justify-content:space-between; flex-shrink:0;
+  }
+  .gp-form-header h3 { font-family:'Playfair Display',serif; font-size:17px; }
+  .gp-form-body { flex:1; overflow-y:auto; padding:22px; }
+  .gp-form-footer {
+    padding:16px 22px; border-top:1px solid var(--border);
+    display:flex; gap:10px; justify-content:flex-end; flex-shrink:0;
+  }
+
+  .gp-field { margin-bottom:14px; }
+  .gp-field label {
+    display:block; font-size:11px; font-weight:700; text-transform:uppercase;
+    letter-spacing:.06em; color:var(--mid); margin-bottom:5px;
+  }
+  .gp-field input, .gp-field select, .gp-field textarea {
+    width:100%; padding:10px 13px;
+    border:1.5px solid var(--border); border-radius:8px;
+    font-size:13px; font-family:'DM Sans',sans-serif;
+    background:var(--cream); color:var(--charcoal); outline:none;
+    transition: border-color .2s;
+  }
+  .gp-field input:focus, .gp-field select:focus, .gp-field textarea:focus { border-color:var(--accent); }
+  .gp-field textarea { min-height:70px; resize:vertical; }
+  .gp-field-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .gp-field-row3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; }
+
+  .gp-sizes-section { margin-bottom:14px; }
+  .gp-sizes-label {
+    font-size:11px; font-weight:700; text-transform:uppercase;
+    letter-spacing:.06em; color:var(--mid); margin-bottom:8px; display:flex;
+    align-items:center; justify-content:space-between;
+  }
+  .gp-size-row {
+    display:grid; grid-template-columns:70px 90px 70px 1fr 28px;
+    gap:7px; align-items:center; margin-bottom:7px;
+  }
+  .gp-size-row input {
+    padding:8px 10px; border:1.5px solid var(--border); border-radius:7px;
+    font-size:12px; font-family:'DM Sans',sans-serif;
+    background:var(--cream); color:var(--charcoal); outline:none; width:100%;
+    transition: border-color .2s;
+  }
+  .gp-size-row input:focus { border-color:var(--accent); }
+  .gp-size-row select {
+    padding:8px 6px; border:1.5px solid var(--border); border-radius:7px;
+    font-size:12px; font-family:'DM Sans',sans-serif;
+    background:var(--cream); color:var(--charcoal); outline:none; width:100%;
+  }
+  .gp-rm-size {
+    width:26px; height:26px; border:1px solid #FECACA; background:#FEE2E2;
+    color:#DC2626; border-radius:6px; cursor:pointer; font-size:14px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .gp-rm-size:hover { background:#FECACA; }
+  .gp-add-size {
+    background:none; border:1.5px dashed var(--border); border-radius:7px;
+    padding:7px 12px; font-size:12px; color:var(--muted); cursor:pointer;
+    font-family:'DM Sans',sans-serif; width:100%; text-align:center;
+    transition: all .15s;
+  }
+  .gp-add-size:hover { border-color:var(--accent); color:var(--accent); }
+
+  .gp-img-preview {
+    width:80px; height:80px; object-fit:cover; border-radius:8px;
+    border:1px solid var(--border); display:none;
+  }
+  .gp-img-preview.show { display:block; }
+  .gp-img-row { display:flex; align-items:center; gap:12px; }
+
+  /* Export modal */
+  #gp-export-overlay {
+    position:fixed; inset:0; z-index:800;
+    background:rgba(0,0,0,.7); backdrop-filter:blur(4px);
+    display:none; align-items:center; justify-content:center; padding:20px;
+  }
+  #gp-export-overlay.open { display:flex; }
+  .gp-export-modal {
+    background:var(--warm-white); border-radius:16px;
+    width:100%; max-width:680px; max-height:85vh;
+    display:flex; flex-direction:column; overflow:hidden;
+    box-shadow:0 24px 64px rgba(0,0,0,.45);
+  }
+  .gp-export-body { flex:1; overflow-y:auto; padding:22px; }
+  .gp-export-area {
+    width:100%; min-height:220px; font-size:11px; font-family:monospace;
+    border:1.5px solid var(--border); border-radius:8px;
+    padding:12px; background:#1C1C1C; color:#A8FF78;
+    resize:vertical; outline:none;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1200px) {
+    .main-layout { grid-template-columns: 440px 1fr; }
+    .cart-panel {
+      position: fixed; right: 0; top: 0; bottom: 0;
+      width: 100%; max-width: 360px;
+      border-radius: 0; border: none;
+      transform: translateX(110%);
+      transition: transform .3s cubic-bezier(.4,0,.2,1);
+      z-index: 201; max-height: 100vh;
+      box-shadow: -8px 0 32px rgba(0,0,0,.15);
+    }
+    .cart-panel.open { transform: translateX(0); }
+    .cart-overlay {
+      display: block; position: fixed; inset: 0; z-index: 200;
+      background: rgba(0,0,0,.5); backdrop-filter: blur(3px);
+      opacity: 0; pointer-events: none; transition: opacity .3s;
+    }
+    .cart-overlay.open { opacity: 1; pointer-events: all; }
+    .cart-close { display: flex; }
+    .cart-btn { display: flex; }
+  }
+  @media (max-width: 768px) {
+    .main-layout { grid-template-columns: 1fr; }
+    .sidebar { position: static; }
+    .sidebar-cols { flex-direction: column; gap: 16px; }
+    .sidebar-col { border-right: none; padding-right: 0; border-bottom: 1px solid var(--border); padding-bottom: 16px; }
+    .sidebar-col:last-child { border-bottom: none; padding-bottom: 0; }
+    .user-tag { display: none !important; }
+    .header-inner { gap: 10px; }
+    .brand-sub { display: none; }
+  }
+  @media (max-width: 480px) {
+    .header-search { display: none; }
+    .login-box { padding: 36px 24px; }
+  }
+
 </style>
 </head>
 <body>
@@ -3469,8 +3678,346 @@ function showDash() {
 function adminTab(tab, evt) {
   document.querySelectorAll(".admin-tab").forEach(t => t.classList.remove("active"));
   if (evt && evt.target) evt.target.classList.add("active");
-  document.getElementById("admin-tab-acessos").style.display = tab === "acessos" ? "block" : "none";
-  document.getElementById("admin-tab-info").style.display   = tab === "info"    ? "block" : "none";
+  document.getElementById("admin-tab-acessos").style.display  = tab === "acessos"  ? "block" : "none";
+  document.getElementById("admin-tab-info").style.display     = tab === "info"     ? "block" : "none";
+  document.getElementById("admin-tab-produtos").style.display = tab === "produtos" ? "block" : "none";
+  if (tab === "produtos") gpRender();
+  } catch(e) {
+    document.getElementById("log-content").innerHTML = '<div class="empty-log">Erro ao carregar logs.</div>';
+  }
+}
+
+function clearLogs() {
+  if (confirm("Tem certeza que deseja apagar todo o histórico de acessos?")) {
+    localStorage.removeItem("dr_access_log");
+    renderLogs();
+    showToast("Histórico apagado com sucesso.");
+  }
+}
+
+// ─── TOAST ────────────────────────────────────────────────────────────
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove("show"), 2500);
+}
+
+
+function gpRender() {
+  const q     = (document.getElementById("gp-search")?.value || "").toLowerCase();
+  const brand = document.getElementById("gp-filter-brand")?.value || "";
+  let list = PRODUCTS.filter(p => {
+    const brandOk = !brand
+      || (brand === "Selecta"    && (!p.brand || p.brand === "Selecta"))
+      || (brand === "Specialita" && p.brand === "Specialita");
+    const qOk = !q
+      || p.name.toLowerCase().includes(q)
+      || (p.family||"").toLowerCase().includes(q)
+      || (p.flavor||"").toLowerCase().includes(q)
+      || (p.subfamily||"").toLowerCase().includes(q);
+    return brandOk && qOk;
+  });
+
+  const statsEl = document.getElementById("gp-stats-bar");
+  if (statsEl) {
+    const skus = list.reduce((s, p) => s + p.sizes.length, 0);
+    statsEl.innerHTML = `Exibindo <strong>${list.length}</strong> de <strong>${PRODUCTS.length}</strong> produtos &nbsp;·&nbsp; <strong>${skus}</strong> SKUs`;
+  }
+
+  const el = document.getElementById("gp-list");
+  if (!el) return;
+  if (!list.length) { el.innerHTML = '<div style="text-align:center;padding:32px;color:var(--muted);font-size:13px;">Nenhum produto encontrado.</div>'; return; }
+
+  el.innerHTML = list.map(p => {
+    const isSpecialita = p.brand === "Specialita";
+    const brandLabel = isSpecialita
+      ? `<span class="gp-row-brand gp-brand-specialita">Specialitá</span>`
+      : `<span class="gp-row-brand gp-brand-selecta">Selecta</span>`;
+    const hasImg = p.image && (PRODUCT_IMAGES && PRODUCT_IMAGES[String(p.id)]) ? "🖼" : "";
+    return `
+    <div class="gp-row">
+      <div class="gp-row-id">#${p.id}</div>
+      <div class="gp-row-info">
+        <div class="gp-row-name">${safeText(p.name)} ${hasImg}</div>
+        <div class="gp-row-meta">${safeText(p.family)}${p.subfamily && p.subfamily !== p.family ? ' › '+safeText(p.subfamily) : ''} &nbsp;·&nbsp; ${p.sizes.length} SKU${p.sizes.length!==1?'s':''}</div>
+      </div>
+      ${brandLabel}
+      <div class="gp-row-actions">
+        <button class="gp-icon-btn" title="Editar" onclick="gpOpenForm(${p.id})">✏️</button>
+        <button class="gp-icon-btn del" title="Excluir" onclick="gpDelete(${p.id})">🗑</button>
+      </div>
+    </div>`;
+  }).join("");
+}
+
+function gpAddSizeRow(data) {
+  const c = document.getElementById("gp-sizes-container");
+  const row = document.createElement("div");
+  row.className = "gp-size-row";
+  row.innerHTML = `
+    <input type="text" placeholder="2kg" value="${data ? safeText(data.label) : ''}" data-field="label">
+    <select data-field="pack">
+      ${["Pote","Balde","Saco","Caixa"].map(v => `<option value="${v}"${data && data.pack===v?" selected":""}>${v}</option>`).join("")}
+    </select>
+    <input type="number" placeholder="4" value="${data ? data.perBox : ''}" data-field="perBox" min="1">
+    <input type="text" placeholder="Código EAN" value="${data ? safeText(data.code) : ''}" data-field="code">
+    <button class="gp-rm-size" onclick="this.closest('.gp-size-row').remove()">✕</button>
+  `;
+  c.appendChild(row);
+}
+
+function gpGetSizes() {
+  return [...document.querySelectorAll("#gp-sizes-container .gp-size-row")].map(row => ({
+    label:  row.querySelector('[data-field="label"]').value.trim(),
+    pack:   row.querySelector('[data-field="pack"]').value,
+    perBox: parseInt(row.querySelector('[data-field="perBox"]').value) || 1,
+    code:   row.querySelector('[data-field="code"]').value.trim(),
+  })).filter(s => s.label && s.code);
+}
+
+function gpNextId() {
+  return Math.max(...PRODUCTS.map(p => p.id), 0) + 1;
+}
+
+function gpOpenForm(id) {
+  document.getElementById("gp-sizes-container").innerHTML = "";
+  document.getElementById("gp-img-preview").classList.remove("show");
+  document.getElementById("gp-img-url").value = "";
+
+  if (id) {
+    const p = PRODUCTS.find(x => x.id === id);
+    if (!p) return;
+    document.getElementById("gp-form-title").textContent = "Editar Produto";
+    document.getElementById("gp-edit-id").value = id;
+    document.getElementById("gp-id").value      = p.id;
+    document.getElementById("gp-id").disabled   = true;
+    document.getElementById("gp-brand").value   = p.brand || "Selecta";
+    document.getElementById("gp-name").value    = p.name;
+    document.getElementById("gp-family").value  = p.family;
+    document.getElementById("gp-subfamily").value = p.subfamily || "";
+    document.getElementById("gp-flavor").value  = p.flavor || "";
+    document.getElementById("gp-desc").value    = p.description || "";
+    p.sizes.forEach(s => gpAddSizeRow(s));
+    // imagem
+    const img = (typeof PRODUCT_IMAGES !== "undefined") ? PRODUCT_IMAGES[String(id)] : null;
+    if (img) {
+      document.getElementById("gp-img-url").value = img;
+      const prev = document.getElementById("gp-img-preview");
+      prev.src = img; prev.classList.add("show");
+    }
+  } else {
+    document.getElementById("gp-form-title").textContent = "Novo Produto";
+    document.getElementById("gp-edit-id").value = "";
+    document.getElementById("gp-id").value      = gpNextId();
+    document.getElementById("gp-id").disabled   = false;
+    document.getElementById("gp-brand").value   = "Selecta";
+    document.getElementById("gp-name").value    = "";
+    document.getElementById("gp-family").value  = "";
+    document.getElementById("gp-subfamily").value = "";
+    document.getElementById("gp-flavor").value  = "";
+    document.getElementById("gp-desc").value    = "";
+    gpAddSizeRow();
+  }
+  gpUpdateFamilyOptions();
+  document.getElementById("gp-form-overlay").classList.add("open");
+}
+
+function gpCloseForm() {
+  document.getElementById("gp-form-overlay").classList.remove("open");
+}
+
+function gpSaveProduct() {
+  const editId = document.getElementById("gp-edit-id").value;
+  const id     = parseInt(document.getElementById("gp-id").value);
+  const name   = document.getElementById("gp-name").value.trim();
+  const family = document.getElementById("gp-family").value.trim();
+  const brand  = document.getElementById("gp-brand").value;
+  const sizes  = gpGetSizes();
+
+  if (!id || !name || !family || !sizes.length) {
+    showToast("⚠️ Preencha: ID, Nome, Família e ao menos 1 tamanho com código.");
+    return;
+  }
+
+  // Verificar ID duplicado apenas em novo produto
+  if (!editId && PRODUCTS.find(p => p.id === id)) {
+    showToast(`⚠️ ID #${id} já existe. Escolha outro.`);
+    return;
+  }
+
+  const product = {
+    id,
+    name,
+    family,
+    subfamily: document.getElementById("gp-subfamily").value.trim() || family,
+    brand: brand === "Selecta" ? undefined : brand,
+    flavor: document.getElementById("gp-flavor").value.trim() || undefined,
+    description: document.getElementById("gp-desc").value.trim() || undefined,
+    image: null,
+    sizes,
+  };
+  if (!product.brand) delete product.brand;
+  if (!product.flavor) delete product.flavor;
+  if (!product.description) delete product.description;
+
+  // Salvar imagem no PRODUCT_IMAGES
+  const imgVal = document.getElementById("gp-img-url").value.trim();
+  if (typeof PRODUCT_IMAGES !== "undefined") {
+    if (imgVal) PRODUCT_IMAGES[String(id)] = imgVal;
+    else delete PRODUCT_IMAGES[String(id)];
+  }
+
+  if (editId) {
+    const idx = PRODUCTS.findIndex(p => p.id === parseInt(editId));
+    if (idx >= 0) PRODUCTS[idx] = product;
+    showToast(`✅ Produto #${id} atualizado com sucesso.`);
+  } else {
+    PRODUCTS.push(product);
+    showToast(`✅ Produto #${id} adicionado ao catálogo.`);
+  }
+
+  // Recalcular arrays derivados
+  SELECTA_PRODUCTS.length = 0;
+  SPECIALITA_PRODUCTS.length = 0;
+  PRODUCTS.filter(p => !p.brand || p.brand === "Selecta").forEach(p => SELECTA_PRODUCTS.push(p));
+  PRODUCTS.filter(p => p.brand === "Specialita").forEach(p => SPECIALITA_PRODUCTS.push(p));
+
+  gpCloseForm();
+  gpRender();
+  showDash();
+}
+
+function gpDelete(id) {
+  const p = PRODUCTS.find(x => x.id === id);
+  if (!p) return;
+  if (!confirm(`Excluir produto #${id} — "${p.name}"?\n\nEsta ação só afeta a sessão atual. Para tornar permanente, exporte o JS.`)) return;
+  const idx = PRODUCTS.findIndex(x => x.id === id);
+  if (idx >= 0) PRODUCTS.splice(idx, 1);
+  if (typeof PRODUCT_IMAGES !== "undefined") delete PRODUCT_IMAGES[String(id)];
+  SELECTA_PRODUCTS.length = 0;
+  SPECIALITA_PRODUCTS.length = 0;
+  PRODUCTS.filter(p => !p.brand || p.brand === "Selecta").forEach(p => SELECTA_PRODUCTS.push(p));
+  PRODUCTS.filter(p => p.brand === "Specialita").forEach(p => SPECIALITA_PRODUCTS.push(p));
+  showToast(`🗑 Produto #${id} removido da sessão.`);
+  gpRender();
+  showDash();
+}
+
+function gpPreviewImg() {
+  const url = document.getElementById("gp-img-url").value.trim();
+  const prev = document.getElementById("gp-img-preview");
+  if (url) { prev.src = url; prev.classList.add("show"); }
+  else { prev.classList.remove("show"); prev.src = ""; }
+}
+
+function gpLoadImgFile(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    document.getElementById("gp-img-url").value = e.target.result;
+    gpPreviewImg();
+  };
+  reader.readAsDataURL(file);
+}
+
+function gpClearImg() {
+  document.getElementById("gp-img-url").value = "";
+  const prev = document.getElementById("gp-img-preview");
+  prev.src = ""; prev.classList.remove("show");
+}
+
+function gpOpenExport() {
+  const lines = ["const PRODUCTS = ["];
+  PRODUCTS.forEach((p, i) => {
+    const comma = i < PRODUCTS.length - 1 ? "," : "";
+    const brand  = p.brand  ? `brand:"${p.brand}", ` : "";
+    const flavor = p.flavor ? `\n    flavor:"${(p.flavor||"").replace(/"/g,'\\"')}", ` : "";
+    const desc   = p.description ? `\n    description:"${(p.description||"").replace(/"/g,'\\"')}", ` : "";
+    const img    = (typeof PRODUCT_IMAGES !== "undefined" && PRODUCT_IMAGES[String(p.id)])
+      ? `\n    image:"[BASE64]", ` : "\n    image:null, ";
+    const sizes  = p.sizes.map(s =>
+      `{label:"${s.label}", pack:"${s.pack}", perBox:${s.perBox}, code:"${s.code}"}`
+    ).join(", ");
+    lines.push(`  { id:${p.id}, name:"${p.name.replace(/"/g,'\\"')}", family:"${p.family.replace(/"/g,'\\"')}", subfamily:"${(p.subfamily||p.family).replace(/"/g,'\\"')}", ${brand}${flavor}${desc}${img}\n    sizes:[${sizes}]}${comma}`);
+  });
+  lines.push("];");
+  document.getElementById("gp-export-area").value = lines.join("\n");
+  document.getElementById("gp-export-overlay").classList.add("open");
+}
+
+function gpCopyExport() {
+  const el = document.getElementById("gp-export-area");
+  el.select();
+  document.execCommand("copy");
+  showToast("📋 PRODUCTS[] copiado! Cole no arquivo HTML para salvar.");
+}
+
+
+const ADMIN_SECRET = ["c2Vs","ZWN0","YTIw","MjU="]; // proteção local; segurança real exige backend
+let adminLoggedIn = false;
+function getAdminSecret() {
+  return ADMIN_SECRET.join("");
+}
+
+// Register access when client logs in
+function registerAccess(name) {
+  try {
+    const logs = JSON.parse(localStorage.getItem("dr_access_log") || "[]");
+    logs.unshift({
+      razao: name,
+      data: new Date().toLocaleDateString("pt-BR"),
+      hora: new Date().toLocaleTimeString("pt-BR", {hour:"2-digit",minute:"2-digit"}),
+      ts: Date.now()
+    });
+    // keep last 500
+    if (logs.length > 500) logs.splice(500);
+    localStorage.setItem("dr_access_log", JSON.stringify(logs));
+  } catch(e) {}
+}
+
+function openAdmin() {
+  document.getElementById("admin-overlay").classList.add("open");
+  if (!adminLoggedIn) {
+    document.getElementById("admin-login-view").style.display = "block";
+    document.getElementById("admin-dash-view").style.display = "none";
+    setTimeout(() => document.getElementById("admin-pass").focus(), 100);
+  } else {
+    showDash();
+  }
+}
+function closeAdmin() {
+  document.getElementById("admin-overlay").classList.remove("open");
+  document.getElementById("admin-pass").value = "";
+  document.getElementById("admin-err").textContent = "";
+}
+
+function adminAuth() {
+  const p = document.getElementById("admin-pass").value;
+  if (btoa(p) === getAdminSecret()) {
+    adminLoggedIn = true;
+    document.getElementById("admin-err").textContent = "";
+    showDash();
+  } else {
+    document.getElementById("admin-err").textContent = "Senha incorreta. Tente novamente.";
+    document.getElementById("admin-pass").value = "";
+    document.getElementById("admin-pass").focus();
+  }
+}
+
+function showDash() {
+  document.getElementById("admin-login-view").style.display = "none";
+  document.getElementById("admin-dash-view").style.display = "block";
+  renderLogs();
+  // catalog info
+  document.getElementById("info-produtos").textContent = PRODUCTS.length;
+  const skus = PRODUCTS.reduce((s,p)=>s+p.sizes.length,0);
+  document.getElementById("info-skus").textContent = skus;
+  const fams = new Set(PRODUCTS.map(p=>p.family)).size;
+  document.getElementById("info-familias").textContent = fams;
 }
 
 function renderLogs() {
@@ -3570,6 +4117,7 @@ function showToast(msg) {
       <div class="admin-tabs">
         <div class="admin-tab active" onclick="adminTab('acessos', event)">Acessos ao Catálogo</div>
         <div class="admin-tab" onclick="adminTab('info', event)">Informações do Catálogo</div>
+        <div class="admin-tab" onclick="adminTab('produtos', event)">Gerenciar Produtos</div>
       </div>
 
       <!-- TAB: ACESSOS -->
@@ -3608,10 +4156,25 @@ function showToast(msg) {
             </p>
           </div>
         </div>
+            <div id="admin-tab-produtos" class="admin-section" style="display:none">
+        <div class="gp-toolbar">
+          <input type="text" class="gp-search" id="gp-search" placeholder="Buscar produto por nome, família, sabor..." oninput="gpRender()">
+          <select class="gp-select" id="gp-filter-brand" onchange="gpRender()">
+            <option value="">Todas as marcas</option>
+            <option value="Selecta">Selecta</option>
+            <option value="Specialita">Specialitá</option>
+          </select>
+          <button class="gp-btn gp-btn-primary" onclick="gpOpenForm()">＋ Novo Produto</button>
+          <button class="gp-btn gp-btn-export" onclick="gpOpenExport()">⬇ Exportar JS</button>
+        </div>
+        <div class="gp-stats-bar" id="gp-stats-bar"></div>
+        <div class="gp-list" id="gp-list"></div>
       </div>
     </div>
   </div>
 </div>
+
+
 
 </body>
 </html>

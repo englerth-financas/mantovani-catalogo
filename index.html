@@ -301,7 +301,7 @@
 
   .products-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 20px;
   }
 
@@ -683,6 +683,18 @@
   .subbrand-logo { mix-blend-mode: screen; }
   .logo-selecta { mix-blend-mode: screen; }
   .logo-specialita { mix-blend-mode: screen; }
+
+
+  /* Grid responsivo controlado */
+  @media (min-width: 1024px) {
+    .product-grid { grid-template-columns: repeat(4, 1fr) !important; }
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .product-grid { grid-template-columns: repeat(3, 1fr) !important; }
+  }
+  @media (max-width: 767px) {
+    .product-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  }
 
 </style>
 </head>
